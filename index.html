@@ -80,7 +80,7 @@
       border-radius: 50%;
       object-fit: cover;
       background-color: #202c33;
-      border: 2px solid #00e676;
+      border: 2px solid #00a884;
     }
     .status-meta .title {
       font-size: 16px;
@@ -212,7 +212,7 @@
       transition: color 0.2s;
     }
     .popup-item:hover {
-      color: #00e676;
+      color: #00a884;
     }
 
     /* List Items & Scroll بدون أي فراغ سفلي */
@@ -248,7 +248,7 @@
       gap: 14px;
     }
 
-    /* Avatar with Bright Story Rings (فاصل صغير جداً ودقيقة) */
+    /* Avatar with WhatsApp Status Rings (دقة الفواصل واللون الأخضر الكلاسيكي) */
     .avatar-wrapper {
       position: relative;
       width: 46px;
@@ -285,7 +285,7 @@
     .viewer-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
   </style>
 </head>
@@ -327,7 +327,7 @@
           <span>Viewed by 423</span>
           <span style="display: flex; align-items: center; gap: 4px; margin-left: 8px; font-weight: normal; color: #8696a0;">
             367 
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00e676">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="#00a884">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
             </svg>
           </span>
@@ -362,10 +362,10 @@
             </svg>
           </button>
 
-          <!-- Popup Card Menu (أيقونات IP، الأرض، الهاتف، الكمبيوتر) -->
+          <!-- Popup Card Menu -->
           <div class="popup-menu" id="popupMenu">
             <button class="popup-item" title="IP Info">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="#00e676"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="#00a884"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
             </button>
             <button class="popup-item" title="Network">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="#8696a0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
@@ -381,22 +381,22 @@
         </div>
       </div>
 
-      <!-- قائمة المشاهدين بدون فراغ سفلي ومع قلب أخضر ومجموعة ستوريات بدقة فائقة -->
+      <!-- قائمة المشاهدين بالحلقات والدقة المطابقة للواتساب -->
       <div class="viewers-list" id="viewersList"></div>
     </div>
   </div>
 
   <script>
-    // عدد الستوريات بدشات دقيقة جداً وصغيرة جداً (dashArray) لتبدو كفواصل ضئيلة
+    // إعدادات الستوريات (dashArray لعدد اللفات والتقطيعات والفواصل الرمادية الحقيقية للواتساب)
     const viewersData = [
-      { name: "Sin Ca", time: "Yesterday, 6:35 pm", avatar: "viewer1.jpg", dashArray: "4 2" },
-      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", avatar: "viewer2.jpg", dashArray: "8 2" },
-      { name: "Hamed", time: "Yesterday, 5:10 pm", avatar: "viewer3.jpg", dashArray: "2 2" },
-      { name: "Sick", time: "Yesterday, 2:06 pm", avatar: "viewer4.jpg", dashArray: "12 2" },
-      { name: "Mika", time: "Yesterday, 1:58 pm", avatar: "viewer5.jpg", dashArray: "6 2" },
-      { name: "Youssef", time: "Yesterday, 1:12 pm", avatar: "viewer6.jpg", dashArray: "5 2" },
-      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", avatar: "viewer7.jpg", dashArray: "9 2" },
-      { name: "Aya Mohamed", time: "Yesterday, 11:30 am", avatar: "viewer8.jpg", dashArray: "3 2" }
+      { name: "Sin Ca", time: "Yesterday, 6:35 pm", avatar: "viewer1.jpg", dashArray: "30 6" },   // ستوريتين
+      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", avatar: "viewer2.jpg", dashArray: "18 5" },  // 3 ستوريات
+      { name: "Hamed", time: "Yesterday, 5:10 pm", avatar: "viewer3.jpg", dashArray: "12 4" },  // 4 ستوريات
+      { name: "Sick", time: "Yesterday, 2:06 pm", avatar: "viewer4.jpg", dashArray: "8 3" },    // ستوريات متعددة
+      { name: "Mika", time: "Yesterday, 1:58 pm", avatar: "viewer5.jpg", dashArray: "22 5" },  // 3 ستوريات
+      { name: "Youssef", time: "Yesterday, 1:12 pm", avatar: "viewer6.jpg", dashArray: "14 4" },  // 4 ستوريات
+      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", avatar: "viewer7.jpg", dashArray: "45 8" }, // ستوريتان طويلتان
+      { name: "Aya Mohamed", time: "Yesterday, 11:30 am", avatar: "viewer8.jpg", dashArray: "10 4" }
     ];
 
     const container = document.getElementById('viewersList');
@@ -406,12 +406,12 @@
       item.className = 'viewer-item';
 
       const actionsHtml = `
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <!-- WhatsApp Green Heart Icon -->
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="#00e676">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <!-- WhatsApp Green Heart Icon (مطابق لحجم انستغرام 20x20) -->
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#00a884">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
-          <!-- Chat Icon -->
+          <!-- Chat Icon (مطابق لحجم انستغرام 20x20) -->
           <svg viewBox="0 0 24 24" width="20" height="20" fill="#8696a0">
             <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
           </svg>
@@ -421,7 +421,10 @@
         <div class="viewer-info">
           <div class="avatar-wrapper">
             <svg class="story-ring" viewBox="0 0 50 50">
-              <circle cx="25" cy="25" r="23" fill="none" stroke="#00e676" stroke-width="2.4" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
+              <!-- خلفية الـ Track الرمادي الغامق الخاص بفاصل الستوريات للواتساب -->
+              <circle cx="25" cy="25" r="22" fill="none" stroke="#222f35" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
+              <!-- حلقات الستوري الخضراء بالأصل الكلاسيكي الفخم -->
+              <circle cx="25" cy="25" r="22" fill="none" stroke="#00a884" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
             </svg>
             <img src="${person.avatar}" class="viewer-avatar" alt="${person.name}">
           </div>
