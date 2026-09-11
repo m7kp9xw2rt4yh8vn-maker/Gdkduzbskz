@@ -6,12 +6,13 @@
   <title>WhatsApp Status Viewer - Official Dark</title>
   <style>
     :root {
-      --wa-green: #25d366;
-      --wa-bg: #070d12;
+      --wa-green: #00a884;
+      --wa-green-light: #25d366;
+      --wa-bg: #0b141a;
       --wa-card: #111b21;
-      --wa-border: #26353f;
-      --wa-text-main: #f1f5f8;
-      --wa-text-secondary: #aab8c2;
+      --wa-border: #222d34;
+      --wa-text-main: #e9edef;
+      --wa-text-secondary: #8696a0;
     }
 
     * {
@@ -22,7 +23,7 @@
     }
 
     body {
-      background-color: var(--wa-bg);
+      background-color: #04090e;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -41,6 +42,7 @@
       position: relative;
       overflow: hidden;
       color: var(--wa-text-main);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
 
     /* Top Progress Bar */
@@ -50,7 +52,7 @@
       left: 10px;
       right: 10px;
       height: 2px;
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.3);
       border-radius: 2px;
       z-index: 10;
     }
@@ -71,7 +73,7 @@
       justify-content: space-between;
       padding: 10px 16px;
       z-index: 10;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent);
+      background: linear-gradient(to bottom, rgba(11,20,26,0.9), transparent);
     }
     .header-left {
       display: flex;
@@ -89,7 +91,7 @@
       border-radius: 50%;
       object-fit: cover;
       background-color: #202c33;
-      border: 2px solid var(--wa-green);
+      border: 2px solid var(--wa-green-light);
     }
     .status-meta .title {
       font-size: 16px;
@@ -109,12 +111,13 @@
     /* Story Media Section */
     .media-container {
       width: 100%;
-      height: 40%;
+      height: 38%;
       position: relative;
       background-color: #000000;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-shrink: 0;
     }
     .story-image {
       width: 100%;
@@ -125,33 +128,32 @@
     /* Floating Pill Badge */
     .pill-badge {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(17, 27, 33, 0.9);
+      bottom: 16px;
+      background: rgba(17, 27, 33, 0.85);
       backdrop-filter: blur(8px);
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 20px;
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 13px;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.1);
       color: var(--wa-text-main);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
     /* Viewers Bottom Sheet */
     .viewers-sheet {
       flex: 1;
+      min-height: 0; /* عنصر حاسم لتمكين السكرول بشكل صحيح داخل الـ Flex */
       background-color: var(--wa-bg);
-      border-top-left-radius: 16px;
-      border-top-right-radius: 16px;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
       display: flex;
       flex-direction: column;
       z-index: 10;
-      box-shadow: 0 -4px 25px rgba(0,0,0,0.95);
-      margin-top: -10px;
-      overflow: visible;
+      box-shadow: 0 -4px 25px rgba(0,0,0,0.8);
+      margin-top: -12px;
     }
     .sheet-header {
       padding: 14px 16px;
@@ -161,8 +163,9 @@
       border-bottom: 1px solid var(--wa-border);
       position: relative;
       background-color: var(--wa-bg);
-      border-top-left-radius: 16px;
-      border-top-right-radius: 16px;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      flex-shrink: 0;
     }
     .view-count {
       font-size: 15px;
@@ -198,7 +201,7 @@
       position: absolute;
       top: -52px;
       right: 0;
-      background-color: #22313b;
+      background-color: #1f2c34;
       border-radius: 12px;
       padding: 8px 12px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.9);
@@ -223,22 +226,22 @@
       transition: color 0.2s;
     }
     .popup-item:hover {
-      color: var(--wa-green);
+      color: var(--wa-green-light);
     }
 
     /* List Items & Scroll */
     .viewers-list {
       flex: 1;
+      min-height: 0; /* حاسم جداً لظهور شريط التمرير والسكرول بسلاسة */
       overflow-y: auto;
       scrollbar-width: thin;
-      scrollbar-color: #26353f transparent;
-      padding-bottom: 0;
+      scrollbar-color: #222d34 transparent;
     }
     .viewers-list::-webkit-scrollbar {
-      width: 4px;
+      width: 5px;
     }
     .viewers-list::-webkit-scrollbar-thumb {
-      background-color: #26353f;
+      background-color: #222d34;
       border-radius: 10px;
     }
 
@@ -248,10 +251,11 @@
       justify-content: space-between;
       padding: 12px 16px;
       background-color: var(--wa-bg);
+      border-bottom: 1px solid rgba(34, 45, 52, 0.4);
       transition: background-color 0.15s;
     }
-    .viewer-item:active {
-      background-color: #111b21;
+    .viewer-item:hover {
+      background-color: rgba(255,255,255,0.02);
     }
     .viewer-info {
       display: flex;
@@ -259,48 +263,51 @@
       gap: 14px;
     }
 
-    /* Avatar with WhatsApp Status Rings */
+    /* Avatar with WhatsApp Status Rings (Enhanced) */
     .avatar-wrapper {
       position: relative;
-      width: 46px;
-      height: 46px;
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
     .story-ring {
       position: absolute;
       top: 0;
       left: 0;
-      width: 46px;
-      height: 46px;
+      width: 48px;
+      height: 48px;
+      filter: drop-br: 0 2px 4px rgba(0,0,0,0.3);
     }
     .viewer-avatar {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       object-fit: cover;
       background-color: #202c33;
     }
 
-    /* شارة القلب الأخضر في زاوية الصورة الشخصية */
+    /* شارة القلب الأخضر */
     .heart-badge {
       position: absolute;
-      bottom: -2px;
-      right: -2px;
+      bottom: -1px;
+      right: -1px;
       background-color: var(--wa-bg);
       border-radius: 50%;
-      padding: 1px;
+      padding: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 5;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.6);
     }
 
     .viewer-name {
       font-size: 15px;
       font-weight: 500;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
       color: var(--wa-text-main);
     }
     .viewer-time {
@@ -308,11 +315,15 @@
       color: var(--wa-text-secondary);
     }
     .viewer-comment {
-      font-size: 11.5px;
-      color: #7c909d;
+      font-size: 12px;
+      color: #00a884;
       margin-top: 3px;
       direction: ltr;
-      font-weight: 400;
+      font-weight: 500;
+      background: rgba(0, 168, 132, 0.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+      display: inline-block;
     }
     .viewer-actions {
       display: flex;
@@ -398,7 +409,7 @@
           <div class="popup-menu" id="popupMenu">
             <!-- IP Badge next to Globe -->
             <button class="popup-item" title="IP Info">
-              <span style="font-size: 10px; font-weight: 700; color: var(--wa-green); background: rgba(37,211,102,0.15); padding: 2px 4px; border-radius: 4px;">IP</span>
+              <span style="font-size: 10px; font-weight: 700; color: var(--wa-green-light); background: rgba(37,211,102,0.15); padding: 2px 5px; border-radius: 4px;">IP</span>
             </button>
             <button class="popup-item" title="Network / Globe">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--wa-text-main)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
@@ -408,7 +419,7 @@
             </button>
             <!-- Airplane icon next to Phone -->
             <button class="popup-item" title="Airplane Flight">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--wa-green)"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--wa-green-light)"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
             </button>
             <button class="popup-item" title="Desktop">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--wa-text-main)"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
@@ -418,21 +429,23 @@
         </div>
       </div>
 
-      <!-- قائمة المشاهدين -->
+      <!-- قائمة المشاهدين مع إمكانية التمرير بسلاسة -->
       <div class="viewers-list" id="viewersList"></div>
     </div>
   </div>
 
   <script>
     const viewersData = [
-      { name: "Sin Ca", time: "Yesterday, 6:35 pm", dashArray: "30 6", liked: true, comment: "Код работает, ты легенда! 🚀 (Awesome code!)" },
-      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", dashArray: "18 5", liked: true, comment: "Чистый синтаксис, браво! 🔥 (Clean syntax!)" },
-      { name: "Hamed", time: "Yesterday, 5:10 pm", dashArray: "12 4", liked: true, comment: "Моя вечная инвестиция 💎 (My eternal investment)" },
-      { name: "Sick", time: "Yesterday, 2:06 pm", dashArray: "8 3", liked: true, comment: "Что это за магия?! 💻 (What is this magic?!)" },
-      { name: "Mika", time: "Yesterday, 1:58 pm", dashArray: "22 5", liked: true, comment: "Ты просто гений программирования! ⭐ (Absolute genius!)" },
-      { name: "Youssef", time: "Yesterday, 1:12 pm", dashArray: "14 4", liked: true, comment: "Легендарный проект! ⚡ (Legendary project!)" },
-      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", dashArray: "45 8", liked: false, comment: "Лучший код всех времен! 🛠️ (Best code ever!)" },
-      { name: "Aya Mohamed", time: "Yesterday, 11:30 am", dashArray: "10 4", liked: true, comment: "Шедевр инженерии! ❤️ (Engineering masterpiece!)" }
+      { name: "Sin Ca", time: "Yesterday, 6:35 pm", dashArray: "32 8", liked: true, comment: "Код работает, ты легенда! 🚀 (Awesome code!)" },
+      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", dashArray: "20 6", liked: true, comment: "Чистый синтаксис, браво! 🔥 (Clean syntax!)" },
+      { name: "Hamed", time: "Yesterday, 5:10 pm", dashArray: "15 5", liked: true, comment: "Моя вечная инвестиция 💎 (My eternal investment)" },
+      { name: "Sick", time: "Yesterday, 2:06 pm", dashArray: "10 4", liked: true, comment: "Что это за магия?! 💻 (What is this magic?!)" },
+      { name: "Mika", time: "Yesterday, 1:58 pm", dashArray: "25 6", liked: true, comment: "Ты просто гений программирования! ⭐ (Absolute genius!)" },
+      { name: "Youssef", time: "Yesterday, 1:12 pm", dashArray: "16 5", liked: true, comment: "Легендарный проект! ⚡ (Legendary project!)" },
+      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", dashArray: "40 10", liked: false, comment: "Лучший код всех времен! 🛠️ (Best code ever!)" },
+      { name: "Aya Mohamed", time: "Yesterday, 11:30 am", dashArray: "12 5", liked: true, comment: "Шедевр инженерии! ❤️ (Engineering masterpiece!)" },
+      { name: "Khaled Ali", time: "Yesterday, 10:15 am", dashArray: "28 7", liked: true, comment: "Идеально реализовано! 🌟 (Perfect implementation!)" },
+      { name: "Sara Ahmed", time: "Yesterday, 9:00 am", dashArray: "18 6", liked: false, comment: "Великолепный дизайн! 🎨 (Magnificent design!)" }
     ];
 
     const container = document.getElementById('viewersList');
@@ -445,14 +458,14 @@
 
       const heartBadgeSvg = person.liked ? `
         <div class="heart-badge">
-          <svg viewBox="0 0 24 24" width="16" height="16">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#25d366" stroke="#ffffff" stroke-width="2"/>
+          <svg viewBox="0 0 24 24" width="15" height="15">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#00a884" stroke="#111b21" stroke-width="2"/>
           </svg>
         </div>` : '';
 
       const actionsHtml = `
         <div style="display: flex; align-items: center; gap: 12px;">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--wa-text-secondary)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--wa-text-secondary)">
             <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
           </svg>
         </div>`;
@@ -461,8 +474,8 @@
         <div class="viewer-info">
           <div class="avatar-wrapper">
             <svg class="story-ring" viewBox="0 0 50 50">
-              <circle cx="25" cy="25" r="22" fill="none" stroke="#26353f" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
-              <circle cx="25" cy="25" r="22" fill="none" stroke="var(--wa-green)" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
+              <circle cx="25" cy="25" r="23" fill="none" stroke="#222d34" stroke-width="2" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
+              <circle cx="25" cy="25" r="23" fill="none" stroke="var(--wa-green-light)" stroke-width="2" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
             </svg>
             <img src="${avatarFileName}" class="viewer-avatar" alt="${person.name}">
             ${heartBadgeSvg}
