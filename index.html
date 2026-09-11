@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WhatsApp Status Viewer - AMOLED</title>
+  <title>WhatsApp Status Viewer - Soft AMOLED</title>
   <style>
     :root {
       --amoled-green: #00E676;
-      --bg-black: #000000;
-      --card-bg: #121212;
-      --border-color: #1f1f1f;
+      --bg-amold: #0b141a;
+      --card-bg: #111b21;
+      --border-color: #1f2c34;
       --text-main: #e9edef;
       --text-secondary: #8696a0;
     }
@@ -22,7 +22,7 @@
     }
 
     body {
-      background-color: var(--bg-black);
+      background-color: var(--bg-amold);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -35,7 +35,7 @@
       max-width: 412px;
       height: 100vh;
       max-height: 870px;
-      background-color: var(--bg-black);
+      background-color: var(--bg-amold);
       display: flex;
       flex-direction: column;
       position: relative;
@@ -128,7 +128,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(18, 18, 18, 0.85);
+      background: rgba(17, 27, 33, 0.85);
       backdrop-filter: blur(8px);
       padding: 8px 16px;
       border-radius: 20px;
@@ -143,7 +143,7 @@
     /* Viewers Bottom Sheet */
     .viewers-sheet {
       flex: 1;
-      background-color: var(--bg-black);
+      background-color: var(--bg-amold);
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
       display: flex;
@@ -160,7 +160,7 @@
       align-items: center;
       border-bottom: 1px solid var(--border-color);
       position: relative;
-      background-color: var(--bg-black);
+      background-color: var(--bg-amold);
     }
     .view-count {
       font-size: 15px;
@@ -168,7 +168,7 @@
       color: var(--text-main);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
     .sheet-actions {
       display: flex;
@@ -196,7 +196,7 @@
       position: absolute;
       top: -52px;
       right: 0;
-      background-color: #1a1a1a;
+      background-color: #1f2c34;
       border-radius: 12px;
       padding: 8px 12px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.9);
@@ -224,19 +224,19 @@
       color: var(--amoled-green);
     }
 
-    /* List Items & Scroll بدون أي فواصل */
+    /* List Items & Scroll بدون فواصل */
     .viewers-list {
       flex: 1;
       overflow-y: auto;
       scrollbar-width: thin;
-      scrollbar-color: #222 transparent;
+      scrollbar-color: #202c33 transparent;
       padding-bottom: 0;
     }
     .viewers-list::-webkit-scrollbar {
       width: 4px;
     }
     .viewers-list::-webkit-scrollbar-thumb {
-      background-color: #222;
+      background-color: #202c33;
       border-radius: 10px;
     }
 
@@ -245,11 +245,11 @@
       align-items: center;
       justify-content: space-between;
       padding: 12px 16px;
-      border-bottom: none; /* إزالة الفواصل نهائياً */
-      background-color: var(--bg-black);
+      border-bottom: none;
+      background-color: var(--bg-amold);
     }
     .viewer-item:active {
-      background-color: #0d0d0d;
+      background-color: #111b21;
     }
     .viewer-info {
       display: flex;
@@ -334,9 +334,9 @@
       <div class="sheet-header">
         <div class="view-count">
           <span>Viewed by 423</span>
-          <!-- تم عكس المكان: القلب أولاً ثم الرقم -->
-          <span style="display: flex; align-items: center; gap: 5px; margin-left: 8px; font-weight: normal; color: var(--text-secondary);">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="#00E676">
+          <!-- قلب أخضر بحجم 20x20 مطابق للانستغرام مع خط نظام طبيعي عادي -->
+          <span style="display: flex; align-items: center; gap: 6px; margin-left: 6px; font-weight: normal; font-size: 15px; color: var(--text-main);">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--amoled-green)">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
             </svg>
             367
@@ -375,7 +375,7 @@
           <!-- Popup Card Menu -->
           <div class="popup-menu" id="popupMenu">
             <button class="popup-item" title="IP Info">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="#00E676"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--amoled-green)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
             </button>
             <button class="popup-item" title="Network">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--text-secondary)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
@@ -391,7 +391,7 @@
         </div>
       </div>
 
-      <!-- قائمة المشاهدين بدون فواصل وبألوان AMOLED الخضراء الصارخة -->
+      <!-- قائمة المشاهدين -->
       <div class="viewers-list" id="viewersList"></div>
     </div>
   </div>
@@ -416,11 +416,9 @@
 
       const actionsHtml = `
         <div style="display: flex; align-items: center; gap: 12px;">
-          <!-- AMOLED Green Heart Icon (20x20) -->
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="#00E676">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--amoled-green)">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
-          <!-- Chat Icon (20x20) -->
           <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-secondary)">
             <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
           </svg>
@@ -430,8 +428,8 @@
         <div class="viewer-info">
           <div class="avatar-wrapper">
             <svg class="story-ring" viewBox="0 0 50 50">
-              <circle cx="25" cy="25" r="22" fill="none" stroke="#222222" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
-              <circle cx="25" cy="25" r="22" fill="none" stroke="#00E676" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
+              <circle cx="25" cy="25" r="22" fill="none" stroke="#202c33" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
+              <circle cx="25" cy="25" r="22" fill="none" stroke="var(--amoled-green)" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
             </svg>
             <img src="${person.avatar}" class="viewer-avatar" alt="${person.name}">
           </div>
