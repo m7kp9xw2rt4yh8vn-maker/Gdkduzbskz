@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
     }
 
     body {
-      background-color: #000;
+      background-color: #0b141a;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -72,6 +72,7 @@
     .back-btn {
       font-size: 20px;
       cursor: pointer;
+      color: #fff;
     }
     .profile-avatar {
       width: 40px;
@@ -83,6 +84,7 @@
     .status-meta .title {
       font-size: 16px;
       font-weight: 500;
+      color: #fff;
     }
     .status-meta .subtitle {
       font-size: 12px;
@@ -91,6 +93,7 @@
     .header-menu {
       font-size: 18px;
       cursor: pointer;
+      color: #fff;
     }
 
     /* Story Media Section */
@@ -101,6 +104,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      max-height: 52%;
     }
     .story-image {
       width: 100%;
@@ -123,33 +127,53 @@
       gap: 8px;
       font-size: 13px;
       border: 1px solid rgba(255,255,255,0.1);
+      color: #e9edef;
+      white-space: nowrap;
     }
 
-    /* Bottom Sheet Viewers List */
+    /* Viewers Bottom Sheet */
     .viewers-sheet {
-      height: 50%;
+      flex: 1;
       background-color: #111b21;
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
       display: flex;
       flex-direction: column;
       z-index: 10;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
     }
     .sheet-header {
-      padding: 16px;
+      padding: 14px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #202c33;
     }
-    .view-count {
-      font-size: 16px;
+    .view-stats {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
       font-weight: 500;
+      color: #e9edef;
+    }
+    .likes-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #202c33;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 13px;
     }
     .sheet-actions {
       display: flex;
-      gap: 16px;
-      color: #aebac1;
+      gap: 18px;
+      color: #8696a0;
+      align-items: center;
+    }
+    .sheet-actions svg {
+      cursor: pointer;
     }
 
     /* List Items */
@@ -161,7 +185,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 16px;
+      padding: 10px 16px;
     }
     .viewer-item:active {
       background-color: #202c33;
@@ -182,14 +206,16 @@
       font-size: 15px;
       font-weight: 500;
       margin-bottom: 2px;
+      color: #e9edef;
     }
     .viewer-time {
       font-size: 13px;
       color: #8696a0;
     }
-    .reply-icon {
-      color: #8696a0;
-      font-size: 18px;
+    .viewer-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
   </style>
 </head>
@@ -205,8 +231,8 @@
     <div class="header">
       <div class="header-left">
         <span class="back-btn">&larr;</span>
-        <!-- صورة شخصية صاحب الستوري -->
-        <img src="https://via.placeholder.com/100" class="profile-avatar" id="myAvatar" alt="Me">
+        <!-- ضع صورة ملفك الشخصي هنا -->
+        <img src="YOUR_PROFILE_AVATAR.jpg" class="profile-avatar" id="myAvatar" alt="Me">
         <div class="status-meta">
           <div class="title">My status</div>
           <div class="subtitle">Yesterday, 1:34 pm</div>
@@ -217,8 +243,8 @@
 
     <!-- Story Main Image -->
     <div class="media-container">
-      <!-- ضع رابط صورة الستوري هنا -->
-      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" class="story-image" id="storyImg" alt="Status Story">
+      <!-- ضع رابط أو اسم صورة الستوري الخاصة بك هنا -->
+      <img src="YOUR_STORY_IMAGE.jpg" class="story-image" id="storyImg" alt="Status Story">
       
       <div class="pill-badge">
         <span>See more statuses</span>
@@ -229,39 +255,63 @@
     <!-- Viewers Bottom Sheet -->
     <div class="viewers-sheet">
       <div class="sheet-header">
-        <!-- عدد المشاهدات المطلوب (324) -->
-        <div class="view-count" id="viewCount">Viewed by 324</div>
+        <div class="view-stats">
+          <span id="viewCount">Viewed by 324</span>
+          <div class="likes-badge">
+            <!-- أيقونة القلب الأخضر SVG -->
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00a884">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span style="color: #e9edef;">267</span>
+          </div>
+        </div>
         <div class="sheet-actions">
-          <span>&#128247;</span>
+          <!-- أيقونة الكاميرا SVG -->
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#8696a0">
+            <path d="M4 6h2l2-2h8l2 2h2a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm8 13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0-8c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+          </svg>
+          <!-- زر الثلاث نقاط -->
           <span>&#8942;</span>
         </div>
       </div>
 
       <!-- قائمة الأشخاص -->
       <div class="viewers-list" id="viewersList">
-        <!-- يتم إدراج الأشخاص عبر JavaScript -->
+        <!-- يتم إدراج الأشخاص تلقائياً عبر الجافاسكريبت -->
       </div>
     </div>
   </div>
 
   <script>
-    // بيانات الأشخاص اللذين رأوا الستوري (يمكنك تعديل الأسماء والتوقيت ورابط الصور هنا)
+    // بيانات الأشخاص (يمكنك تعديل الأسماء، التوقيت، روابط الصور، وهل قاموا بالإعجاب أم لا liked: true/false)
     const viewersData = [
-      { name: "Sin Ca", time: "Yesterday, 6:35 pm", avatar: "https://i.pravatar.cc/150?img=11" },
-      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", avatar: "https://i.pravatar.cc/150?img=12" },
-      { name: "Hamed", time: "Yesterday, 5:10 pm", avatar: "https://i.pravatar.cc/150?img=13" },
-      { name: "Sick", time: "Yesterday, 2:06 pm", avatar: "https://i.pravatar.cc/150?img=14" },
-      { name: "Mika", time: "Yesterday, 1:58 pm", avatar: "https://i.pravatar.cc/150?img=15" },
-      { name: "Youssef", time: "Yesterday, 1:12 pm", avatar: "https://i.pravatar.cc/150?img=33" },
-      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", avatar: "https://i.pravatar.cc/150?img=60" }
+      { name: "Sin Ca", time: "Yesterday, 6:35 pm", avatar: "path/to/image1.jpg", liked: true },
+      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", avatar: "path/to/image2.jpg", liked: true },
+      { name: "Hamed", time: "Yesterday, 5:10 pm", avatar: "path/to/image3.jpg", liked: false },
+      { name: "Sick", time: "Yesterday, 2:06 pm", avatar: "path/to/image4.jpg", liked: true },
+      { name: "Mika", time: "Yesterday, 1:58 pm", avatar: "path/to/image5.jpg", liked: false },
+      { name: "Youssef", time: "Yesterday, 1:12 pm", avatar: "path/to/image6.jpg", liked: true },
+      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", avatar: "path/to/image7.jpg", liked: true }
     ];
 
-    // توليد عناصر القائمة تلقائياً
     const container = document.getElementById('viewersList');
     
     viewersData.forEach(person => {
       const item = document.createElement('div');
       item.className = 'viewer-item';
+      
+      // أيقونة القلب الأخضر تظهر إذا كان الشخص قد وضع إعجاباً
+      const heartSvg = person.liked ? `
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#00a884">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>` : '';
+
+      // أيقونة المحادثة (الرد) كـ SVG مطابقة لواتساب
+      const chatSvg = `
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#8696a0">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+        </svg>`;
+
       item.innerHTML = `
         <div class="viewer-info">
           <img src="${person.avatar}" class="viewer-avatar" alt="${person.name}">
@@ -270,7 +320,10 @@
             <div class="viewer-time">${person.time}</div>
           </div>
         </div>
-        <div class="reply-icon">&#128172;</div>
+        <div class="viewer-actions">
+          ${heartSvg}
+          ${chatSvg}
+        </div>
       `;
       container.appendChild(item);
     });
