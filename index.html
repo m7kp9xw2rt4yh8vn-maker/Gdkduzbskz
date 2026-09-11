@@ -231,7 +231,6 @@
       overflow-y: auto;
       scrollbar-width: thin;
       scrollbar-color: #202c33 transparent;
-      padding-bottom: 0;
     }
     .viewers-list::-webkit-scrollbar {
       width: 4px;
@@ -281,7 +280,7 @@
       background-color: #202c33;
     }
     
-    /* شارة القلب الأخضر المطابقة تماماً للصورة */
+    /* شارة القلب الأخضر المطابقة تماماً للإطار الأبيض */
     .heart-badge {
       position: absolute;
       bottom: -2px;
@@ -347,14 +346,13 @@
     <!-- Viewers Bottom Sheet -->
     <div class="viewers-sheet">
       <div class="sheet-header">
-        <!-- عدد المشاهدات والإعجابات -->
         <div class="view-count" id="viewCountText">
-          <span>4 viewed</span>
+          <span>1 viewed</span>
           <span style="display: flex; align-items: center; gap: 5px; font-weight: normal; color: var(--wa-text-main);">
             <svg viewBox="0 0 24 24" width="18" height="18">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#25d366" stroke="#ffffff" stroke-width="2"/>
             </svg>
-            <span id="likesCountNum">3</span>
+            <span id="likesCountNum">1</span>
           </span>
         </div>
 
@@ -400,17 +398,13 @@
   </div>
 
   <script>
-    // قائمة الأشخاص والمشاهدين بكامل تفاصيلهم (يتم تسمية الصور تلقائياً: viewer1.jpg, viewer2.jpg ...)
+    // ضع بيانات الأشخاص هنا كما كانت لديك تماماً
     const viewersData = [
-      { name: "+20 10 97835996 ~ Youssef Mohie", time: "1 minute ago", dashArray: "30 6", liked: true },
-      { name: "Ahmed Ali", time: "15 minutes ago", dashArray: "50 10", liked: true },
-      { name: "Mohamed Hassan", time: "1 hour ago", dashArray: "80 20", liked: false },
-      { name: "Sara Mahmoud", time: "2 hours ago", dashArray: "110 30", liked: true }
+      { name: "+20 10 97835996 ~ Youssef Mohie", time: "1 minute ago", dashArray: "30 6", liked: true }
     ];
 
     const container = document.getElementById('viewersList');
     
-    // تحديث الأعداد ديناميكياً بناءً على القائمة
     document.querySelector('#viewCountText span:first-child').textContent = `${viewersData.length} viewed`;
     const totalLikes = viewersData.filter(v => v.liked).length;
     document.getElementById('likesCountNum').textContent = totalLikes;
@@ -421,7 +415,6 @@
 
       const avatarFileName = `viewer${index + 1}.jpg`;
 
-      // أيقونة القلب الأخضر المطابقة تماماً للصورة
       const heartBadgeSvg = person.liked ? `
         <div class="heart-badge">
           <svg viewBox="0 0 24 24" width="16" height="16">
@@ -429,7 +422,6 @@
           </svg>
         </div>` : '';
 
-      // أيقونة المراسلة للواتساب
       const messageIconHtml = `
         <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--wa-text-secondary)">
           <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
