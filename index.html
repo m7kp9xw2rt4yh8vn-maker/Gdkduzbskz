@@ -7,9 +7,9 @@
   <style>
     :root {
       --wa-green: #25d366;
-      --wa-bg: #111b21;
-      --wa-card: #202c33;
-      --wa-border: #2a3942;
+      --wa-bg: #0b141a;
+      --wa-card: #1f2c34;
+      --wa-border: #222d34;
       --wa-text-main: #e9edef;
       --wa-text-secondary: #8696a0;
     }
@@ -22,7 +22,7 @@
     }
 
     body {
-      background-color: #0b141a;
+      background-color: var(--wa-bg);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -73,7 +73,7 @@
       justify-content: space-between;
       padding: 10px 16px;
       z-index: 10;
-      background: linear-gradient(to bottom, rgba(17,27,33,0.9), transparent);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent);
     }
     .header-left {
       display: flex;
@@ -94,7 +94,7 @@
       height: 40px;
       border-radius: 50%;
       object-fit: cover;
-      background-color: #2a3942;
+      background-color: #202c33;
       border: 2px solid var(--wa-green);
     }
     .status-meta .title {
@@ -135,7 +135,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(32, 44, 51, 0.92);
+      background: rgba(31, 44, 52, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       padding: 8px 16px 8px 10px;
@@ -145,14 +145,14 @@
       gap: 10px;
       font-size: 13.5px;
       font-weight: 500;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       color: var(--wa-text-main);
       box-shadow: 0 8px 24px rgba(0,0,0,0.6);
       cursor: pointer;
       transition: all 0.25s ease;
     }
     .pill-badge:hover {
-      background: rgba(42, 57, 66, 0.98);
+      background: rgba(37, 53, 63, 0.95);
       transform: translate(-50%, -50%) scale(1.02);
       border-color: rgba(37, 211, 102, 0.4);
     }
@@ -160,31 +160,17 @@
       display: flex;
       align-items: center;
     }
-    .pill-avatar-wrapper {
-      position: relative;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: -10px;
-    }
-    .pill-avatar-wrapper:first-child {
-      margin-left: 0;
-    }
-    .pill-ring {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 28px;
-      height: 28px;
-    }
     .pill-avatar {
-      width: 20px;
-      height: 20px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       object-fit: cover;
-      background-color: #2a3942;
+      border: 2px solid var(--wa-green);
+      background-color: #202c33;
+      margin-left: -8px;
+    }
+    .pill-avatar:first-child {
+      margin-left: 0;
     }
 
     /* Viewers Bottom Sheet */
@@ -242,7 +228,7 @@
       color: var(--wa-text-main);
     }
 
-    /* Popup Card Menu */
+    /* Popup Card Menu (بدون حدود) */
     .popup-menu {
       position: absolute;
       top: -62px;
@@ -330,7 +316,7 @@
       height: 38px;
       border-radius: 50%;
       object-fit: cover;
-      background-color: #2a3942;
+      background-color: #202c33;
     }
 
     .heart-badge {
@@ -358,7 +344,7 @@
     }
     .viewer-comment {
       font-size: 11.5px;
-      color: #aab8c2;
+      color: #8696a0;
       margin-top: 3px;
       direction: ltr;
       font-weight: 400;
@@ -395,27 +381,12 @@
     <div class="media-container">
       <img src="story.jpg" class="story-image" id="storyImg" alt="Status Story">
       
-      <!-- See more statuses badge with green rings on each avatar -->
+      <!-- See more statuses badge -->
       <div class="pill-badge">
         <div class="pill-avatars">
-          <div class="pill-avatar-wrapper">
-            <svg class="pill-ring" viewBox="0 0 30 30">
-              <circle cx="15" cy="15" r="13" fill="none" stroke="var(--wa-green)" stroke-width="1.5" stroke-dasharray="16 4" stroke-linecap="round"/>
-            </svg>
-            <img src="status1.jpg" class="pill-avatar" alt="Status 1">
-          </div>
-          <div class="pill-avatar-wrapper">
-            <svg class="pill-ring" viewBox="0 0 30 30">
-              <circle cx="15" cy="15" r="13" fill="none" stroke="var(--wa-green)" stroke-width="1.5" stroke-dasharray="10 3" stroke-linecap="round"/>
-            </svg>
-            <img src="status2.jpg" class="pill-avatar" alt="Status 2">
-          </div>
-          <div class="pill-avatar-wrapper">
-            <svg class="pill-ring" viewBox="0 0 30 30">
-              <circle cx="15" cy="15" r="13" fill="none" stroke="var(--wa-green)" stroke-width="1.5" stroke-dasharray="20 4" stroke-linecap="round"/>
-            </svg>
-            <img src="status3.jpg" class="pill-avatar" alt="Status 3">
-          </div>
+          <img src="status1.jpg" class="pill-avatar" alt="Status 1">
+          <img src="status2.jpg" class="pill-avatar" alt="Status 2">
+          <img src="status3.jpg" class="pill-avatar" alt="Status 3">
         </div>
         <span>See more statuses</span>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
