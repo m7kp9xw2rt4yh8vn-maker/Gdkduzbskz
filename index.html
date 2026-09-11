@@ -321,7 +321,7 @@
 
     <!-- Story Main Image -->
     <div class="media-container">
-      <img src="story-image.jpg" class="story-image" id="storyImg" alt="Status Story">
+      <img src="story.jpg" class="story-image" id="storyImg" alt="Status Story">
       
       <div class="pill-badge">
         <span>See more statuses</span>
@@ -334,7 +334,7 @@
       <div class="sheet-header">
         <div class="view-count">
           <span>Viewed by 423</span>
-          <!-- قلب واتساب الحقيقي والصريح بجانب عدد الإعجابات -->
+          <!-- قلب واتساب الحقيقي والصريح -->
           <span style="display: flex; align-items: center; gap: 6px; margin-left: 6px; font-weight: normal; font-size: 15px; color: var(--wa-text-main);">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--wa-green)">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -397,22 +397,26 @@
   </div>
 
   <script>
+    // قائمة المشاهدين: يتم ترقيم الصور تلقائياً (viewer1.jpg, viewer2.jpg, viewer3.jpg...) حسب ترتيبهم هنا
     const viewersData = [
-      { name: "Sin Ca", time: "Yesterday, 6:35 pm", avatar: "viewer1.jpg", dashArray: "30 6" },
-      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", avatar: "viewer2.jpg", dashArray: "18 5" },
-      { name: "Hamed", time: "Yesterday, 5:10 pm", avatar: "viewer3.jpg", dashArray: "12 4" },
-      { name: "Sick", time: "Yesterday, 2:06 pm", avatar: "viewer4.jpg", dashArray: "8 3" },
-      { name: "Mika", time: "Yesterday, 1:58 pm", avatar: "viewer5.jpg", dashArray: "22 5" },
-      { name: "Youssef", time: "Yesterday, 1:12 pm", avatar: "viewer6.jpg", dashArray: "14 4" },
-      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", avatar: "viewer7.jpg", dashArray: "45 8" },
-      { name: "Aya Mohamed", time: "Yesterday, 11:30 am", avatar: "viewer8.jpg", dashArray: "10 4" }
+      { name: "Sin Ca", time: "Yesterday, 6:35 pm", dashArray: "30 6" },
+      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", dashArray: "18 5" },
+      { name: "Hamed", time: "Yesterday, 5:10 pm", dashArray: "12 4" },
+      { name: "Sick", time: "Yesterday, 2:06 pm", dashArray: "8 3" },
+      { name: "Mika", time: "Yesterday, 1:58 pm", dashArray: "22 5" },
+      { name: "Youssef", time: "Yesterday, 1:12 pm", dashArray: "14 4" },
+      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", dashArray: "45 8" },
+      { name: "Aya Mohamed", time: "Yesterday, 11:30 am", dashArray: "10 4" }
     ];
 
     const container = document.getElementById('viewersList');
     
-    viewersData.forEach(person => {
+    viewersData.forEach((person, index) => {
       const item = document.createElement('div');
       item.className = 'viewer-item';
+
+      // ربط اسم الصورة تلقائياً بالترتيب: viewer1.jpg, viewer2.jpg, ...
+      const avatarFileName = `viewer${index + 1}.jpg`;
 
       const actionsHtml = `
         <div style="display: flex; align-items: center; gap: 12px;">
@@ -433,7 +437,7 @@
               <circle cx="25" cy="25" r="22" fill="none" stroke="#202c33" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
               <circle cx="25" cy="25" r="22" fill="none" stroke="var(--wa-green)" stroke-width="2.5" stroke-dasharray="${person.dashArray}" stroke-linecap="round"/>
             </svg>
-            <img src="${person.avatar}" class="viewer-avatar" alt="${person.name}">
+            <img src="${avatarFileName}" class="viewer-avatar" alt="${person.name}">
           </div>
           <div>
             <div class="viewer-name">${person.name}</div>
