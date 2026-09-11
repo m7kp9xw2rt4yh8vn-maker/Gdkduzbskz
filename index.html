@@ -129,7 +129,7 @@
       object-fit: cover;
     }
 
-    /* Floating Pill Badge (مطابق للصورة تماماً مع 3 صور متداخلة) */
+    /* Floating Pill Badge (مطابق للصورة تماماً مع 3 صور من الجهاز) */
     .pill-badge {
       position: absolute;
       top: 50%;
@@ -227,16 +227,16 @@
       color: var(--wa-text-main);
     }
 
-    /* Popup Card Menu */
+    /* Popup Card Menu (مطابق تماماً لنفس لون وشكل بطاقة المشاهدة) */
     .popup-menu {
       position: absolute;
-      top: -55px;
+      top: -62px;
       right: 0;
-      background-color: #22313b;
-      border-radius: 12px;
-      padding: 8px 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.9);
-      border: 1px solid rgba(255,255,255,0.12);
+      background-color: var(--wa-card);
+      border-radius: 14px;
+      padding: 10px 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.95);
+      border: 1px solid var(--wa-border);
       display: none;
       align-items: center;
       gap: 12px;
@@ -293,7 +293,7 @@
       gap: 14px;
     }
 
-    /* Avatar with WhatsApp Status Rings (بارزة ومجسمة مثل واتساب تماماً) */
+    /* Avatar with WhatsApp Status Rings (بارزة ومجسمة) */
     .avatar-wrapper {
       position: relative;
       width: 48px;
@@ -309,7 +309,7 @@
       left: 0;
       width: 48px;
       height: 48px;
-      filter: drop-shadow(0 0 1.5px rgba(37, 211, 102, 0.45)); /* إبراز الدائرة بوضوح مثل واتساب */
+      filter: drop-shadow(0 0 1.5px rgba(37, 211, 102, 0.45));
     }
     .viewer-avatar {
       width: 38px;
@@ -382,7 +382,7 @@
     <div class="media-container">
       <img src="story.jpg" class="story-image" id="storyImg" alt="Status Story">
       
-      <!-- See more statuses badge مع الصور الـ 3 تماماً مثل طلبك وصورتك المرجعية -->
+      <!-- See more statuses badge مع الصور الـ 3 من جهازك -->
       <div class="pill-badge">
         <div class="pill-avatars">
           <img src="status1.jpg" class="pill-avatar" alt="Status 1">
@@ -438,7 +438,7 @@
             </svg>
           </button>
 
-          <!-- Popup Card Menu -->
+          <!-- Popup Card Menu (بنفس لون وطابع البطاقة الأصلية تماماً) -->
           <div class="popup-menu" id="popupMenu">
             <button class="popup-item" title="IP Info">
               <span style="font-size: 10px; font-weight: 700; color: var(--wa-green); background: rgba(37,211,102,0.15); padding: 2px 4px; border-radius: 4px;">IP</span>
@@ -447,9 +447,8 @@
               <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--wa-text-main)"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm7.93 6h-2.85a15.86 15.86 0 0 0-1.58-4.14A8.04 8.04 0 0 1 19.93 8zM12 4.05c1.32 1.63 2.2 3.65 2.53 5.95H9.47c.33-2.3 1.21-4.32 2.53-5.95zM4.07 10h2.85c-.15 1.34-.15 2.66 0 4H4.07a8.04 8.04 0 0 1-.57-4zm2.28-6a15.86 15.86 0 0 0 1.58 4.14A8.04 8.04 0 0 1 4.07 8h2.28zM12 19.95c-1.32-1.63-2.2-3.65-2.53-5.95h5.06c-.33 2.3-1.21 4.32-2.53 5.95zm3.78-7.95H8.22c-.14-.66-.22-1.33-.22-2s.08-1.34.22-2h7.56c.14.66.22 1.33.22 2s-.08 1.34-.22 2zm.37 7.86A15.86 15.86 0 0 0 17.65 16h2.28a8.04 8.04 0 0 1-1.78 3.86zM17.65 8a15.86 15.86 0 0 0-1.5-4.14A8.04 8.04 0 0 1 19.93 8h-2.28z"/></svg>
             </button>
             <button class="popup-item" title="Mobile View">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--wa-text-main)"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14zM12 20c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1 z"/></svg>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--wa-text-main)"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14zM12 20c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
             </button>
-            <!-- Airplane Flight Icon (أبيض عادي كما طلبت) -->
             <button class="popup-item" title="Airplane Flight">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--wa-text-main)"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
             </button>
