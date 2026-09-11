@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +70,7 @@
       gap: 12px;
     }
     .back-btn {
-      font-size: 20px;
+      font-size: 22px;
       cursor: pointer;
       color: #fff;
     }
@@ -80,6 +80,7 @@
       border-radius: 50%;
       object-fit: cover;
       background-color: #202c33;
+      border: 2px solid #00a884;
     }
     .status-meta .title {
       font-size: 16px;
@@ -91,7 +92,7 @@
       color: #8696a0;
     }
     .header-menu {
-      font-size: 18px;
+      font-size: 20px;
       cursor: pointer;
       color: #fff;
     }
@@ -104,7 +105,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      max-height: 52%;
+      max-height: 50%;
     }
     .story-image {
       width: 100%;
@@ -143,37 +144,33 @@
       box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
     }
     .sheet-header {
-      padding: 14px 16px;
+      padding: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #202c33;
     }
-    .view-stats {
+    .view-count-area {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 15px;
+    }
+    .view-count {
+      font-size: 16px;
       font-weight: 500;
       color: #e9edef;
     }
-    .likes-badge {
+    .likes-count-badge {
       display: flex;
       align-items: center;
       gap: 5px;
-      background: #202c33;
-      padding: 3px 8px;
-      border-radius: 12px;
-      font-size: 13px;
+      font-size: 14px;
+      color: #e9edef;
     }
     .sheet-actions {
       display: flex;
-      gap: 18px;
-      color: #8696a0;
+      gap: 16px;
       align-items: center;
-    }
-    .sheet-actions svg {
-      cursor: pointer;
     }
 
     /* List Items */
@@ -185,7 +182,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 16px;
+      padding: 12px 16px;
     }
     .viewer-item:active {
       background-color: #202c33;
@@ -232,7 +229,7 @@
       <div class="header-left">
         <span class="back-btn">&larr;</span>
         <!-- ضع صورة ملفك الشخصي هنا -->
-        <img src="YOUR_PROFILE_AVATAR.jpg" class="profile-avatar" id="myAvatar" alt="Me">
+        <img src="my-avatar.jpg" class="profile-avatar" id="myAvatar" alt="Me">
         <div class="status-meta">
           <div class="title">My status</div>
           <div class="subtitle">Yesterday, 1:34 pm</div>
@@ -243,8 +240,8 @@
 
     <!-- Story Main Image -->
     <div class="media-container">
-      <!-- ضع رابط أو اسم صورة الستوري الخاصة بك هنا -->
-      <img src="YOUR_STORY_IMAGE.jpg" class="story-image" id="storyImg" alt="Status Story">
+      <!-- ضع صورة الستوري هنا -->
+      <img src="story-image.jpg" class="story-image" id="storyImg" alt="Status Story">
       
       <div class="pill-badge">
         <span>See more statuses</span>
@@ -255,23 +252,23 @@
     <!-- Viewers Bottom Sheet -->
     <div class="viewers-sheet">
       <div class="sheet-header">
-        <div class="view-stats">
-          <span id="viewCount">Viewed by 324</span>
-          <div class="likes-badge">
+        <div class="view-count-area">
+          <div class="view-count" id="viewCount">Viewed by 324</div>
+          <div class="likes-count-badge">
+            <span>267</span>
             <!-- أيقونة القلب الأخضر SVG -->
             <svg viewBox="0 0 24 24" width="16" height="16" fill="#00a884">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
             </svg>
-            <span style="color: #e9edef;">267</span>
           </div>
         </div>
         <div class="sheet-actions">
-          <!-- أيقونة الكاميرا SVG -->
+          <!-- أيقونة انستغرام SVG الأصلية -->
           <svg viewBox="0 0 24 24" width="20" height="20" fill="#8696a0">
-            <path d="M4 6h2l2-2h8l2 2h2a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm8 13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0-8c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
           <!-- زر الثلاث نقاط -->
-          <span>&#8942;</span>
+          <span style="cursor: pointer; color: #8696a0; font-size: 18px;">&#8942;</span>
         </div>
       </div>
 
@@ -283,15 +280,15 @@
   </div>
 
   <script>
-    // بيانات الأشخاص (يمكنك تعديل الأسماء، التوقيت، روابط الصور، وهل قاموا بالإعجاب أم لا liked: true/false)
+    // بيانات الأشخاص (يمكنك تغيير اسم، وقت، ورابط صورة كل شخص على حدة، وتحديد liked: true أو false لإظهار القلب الأخضر بجانب المراسلة)
     const viewersData = [
-      { name: "Sin Ca", time: "Yesterday, 6:35 pm", avatar: "path/to/image1.jpg", liked: true },
-      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", avatar: "path/to/image2.jpg", liked: true },
-      { name: "Hamed", time: "Yesterday, 5:10 pm", avatar: "path/to/image3.jpg", liked: false },
-      { name: "Sick", time: "Yesterday, 2:06 pm", avatar: "path/to/image4.jpg", liked: true },
-      { name: "Mika", time: "Yesterday, 1:58 pm", avatar: "path/to/image5.jpg", liked: false },
-      { name: "Youssef", time: "Yesterday, 1:12 pm", avatar: "path/to/image6.jpg", liked: true },
-      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", avatar: "path/to/image7.jpg", liked: true }
+      { name: "Sin Ca", time: "Yesterday, 6:35 pm", avatar: "viewer1.jpg", liked: true },
+      { name: "A Eltrabily", time: "Yesterday, 5:49 pm", avatar: "viewer2.jpg", liked: true },
+      { name: "Hamed", time: "Yesterday, 5:10 pm", avatar: "viewer3.jpg", liked: false },
+      { name: "Sick", time: "Yesterday, 2:06 pm", avatar: "viewer4.jpg", liked: true },
+      { name: "Mika", time: "Yesterday, 1:58 pm", avatar: "viewer5.jpg", liked: false },
+      { name: "Youssef", time: "Yesterday, 1:12 pm", avatar: "viewer6.jpg", liked: true },
+      { name: "Omar Nabil", time: "Yesterday, 12:45 pm", avatar: "viewer7.jpg", liked: true }
     ];
 
     const container = document.getElementById('viewersList');
@@ -300,13 +297,13 @@
       const item = document.createElement('div');
       item.className = 'viewer-item';
       
-      // أيقونة القلب الأخضر تظهر إذا كان الشخص قد وضع إعجاباً
+      // أيقونة القلب الأخضر تظهر إذا قام الشخص بالإعجاب
       const heartSvg = person.liked ? `
         <svg viewBox="0 0 24 24" width="18" height="18" fill="#00a884">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </svg>` : '';
 
-      // أيقونة المحادثة (الرد) كـ SVG مطابقة لواتساب
+      // أيقونة المحادثة / الرد الأصلية لـ واتساب
       const chatSvg = `
         <svg viewBox="0 0 24 24" width="18" height="18" fill="#8696a0">
           <path d="M19 3H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
