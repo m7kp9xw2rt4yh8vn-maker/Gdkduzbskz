@@ -129,7 +129,7 @@
       object-fit: cover;
     }
 
-    /* Floating Pill Badge (مطابق للصورة تماماً مع 3 صور من الجهاز) */
+    /* Floating Pill Badge */
     .pill-badge {
       position: absolute;
       top: 50%;
@@ -227,7 +227,7 @@
       color: var(--wa-text-main);
     }
 
-    /* Popup Card Menu (مطابق تماماً لنفس لون وشكل بطاقة المشاهدة) */
+    /* Popup Card Menu (بدون أي حدود خارجية) */
     .popup-menu {
       position: absolute;
       top: -62px;
@@ -236,7 +236,7 @@
       border-radius: 14px;
       padding: 10px 14px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.95);
-      border: 1px solid var(--wa-border);
+      border: none; /* تم إزالة الخط الفاصل أو الحدود نهائياً */
       display: none;
       align-items: center;
       gap: 12px;
@@ -293,7 +293,7 @@
       gap: 14px;
     }
 
-    /* Avatar with WhatsApp Status Rings (بارزة ومجسمة) */
+    /* Avatar with WhatsApp Status Rings */
     .avatar-wrapper {
       position: relative;
       width: 48px;
@@ -319,7 +319,6 @@
       background-color: #202c33;
     }
 
-    /* شارة القلب الأخضر في زاوية الصورة الشخصية */
     .heart-badge {
       position: absolute;
       bottom: -1px;
@@ -382,7 +381,7 @@
     <div class="media-container">
       <img src="story.jpg" class="story-image" id="storyImg" alt="Status Story">
       
-      <!-- See more statuses badge مع الصور الـ 3 من جهازك -->
+      <!-- See more statuses badge -->
       <div class="pill-badge">
         <div class="pill-avatars">
           <img src="status1.jpg" class="pill-avatar" alt="Status 1">
@@ -438,7 +437,7 @@
             </svg>
           </button>
 
-          <!-- Popup Card Menu (بنفس لون وطابع البطاقة الأصلية تماماً) -->
+          <!-- Popup Card Menu (بدون حدود) -->
           <div class="popup-menu" id="popupMenu">
             <button class="popup-item" title="IP Info">
               <span style="font-size: 10px; font-weight: 700; color: var(--wa-green); background: rgba(37,211,102,0.15); padding: 2px 4px; border-radius: 4px;">IP</span>
