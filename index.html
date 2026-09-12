@@ -362,6 +362,9 @@
       margin-top: 3px;
       direction: ltr;
       font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
     .viewer-actions {
       display: flex;
@@ -498,10 +501,10 @@
 
   <script>
     const viewersData = [
-      { name: "Иван Li", time: "today, 5:15:36 pm", dashArray: "30 6", liked: true, comment: "КKKод работает ты легенда" },
+      { name: "Иван Li", time: "today, 5:14:36 am", dashArray: "30 6", liked: true, comment: "КKKод работает ты легенда" },
       { name: "C Александр", time: "Today, 5:13:55 am", dashArray: "18 5", liked: true, comment: "Чистый синтаксис браво🔥 Clean syntax" },
       { name: "Максим Dmitry", time: "today, 5:13:25 am", dashArray: "12 4", liked: true, comment: "Моя вечная инвестиция❤️‍🔥❤️‍🔥❤️‍🔥" },
-      { name: "si çai", time: "Today, 5:12:36 am ", dashArray: "8 3", liked: true, comment: "El amanecer digital es un Mmmmito" },
+      { name: "si çai", time: "Today, 5:12:36 am ", dashArray: "8 3", liked: true, comment: "El amanecer digital es un Mmmmito levántate, estás orgulloso" },
       { name: "", time: "today, 5:12:13 am", dashArray: "22 5", liked: true, comment: "🔥🔥🔥💋" },
       { name: "Михаил", time: "today, 5:12:05 pm", dashArray: "14 4", liked: true, comment: "Легендарный проект!" },
       { name: "Omar Nabil", time: "Today, 12:45 pm", dashArray: "45 8", liked: false, comment: "Лучший код всех времен! 🛠️ (Best code ever!)" },
@@ -543,7 +546,12 @@
           <div>
             <div class="viewer-name">${person.name}</div>
             <div class="viewer-time">${person.time}</div>
-            <div class="viewer-comment">${person.comment}</div>
+            <div class="viewer-comment">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="#7c909d">
+                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+              </svg>
+              <span>${person.comment}</span>
+            </div>
           </div>
         </div>
         <div class="viewer-actions">
